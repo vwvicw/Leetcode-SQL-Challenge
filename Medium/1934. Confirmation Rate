@@ -1,0 +1,19 @@
+# Write your MySQL query statement below
+/*
+*****trial*****
+Select *
+From user_id
+LEFT JOINv(SELECT user_id,COUNT(user_id) as confirmed
+FROM Confirmations
+WHERE action = 'confirmed'
+GROUP BY user_id) AS C ON Signups.user_id = C.user_id
+***************
+
+to calculate the average rate, we can normally use AVG() if 0 or 1 binary values have been assigned, otherwise, we would need to use CASE() or "round(avg(if(c.action="confirmed",1,0)),2)"to assign values first then calculate the AVG()
+
+in AVG(action = 'confirmation') calculation, this would return true or false which will be regarded as 0 or 1 autoamtically. Hence this could be a short cut.
+*/
+
+SELECT Signups.user_id, ROUND(AVG(CASE WHEN action = 'confirmed' Then 1 ELSE 0 END),2) AS confirmation_rate
+FROM Signups LEFT JOIN Confirmations ON Signups.user_id = Confirmations.user_id
+GROUP BY user_id
