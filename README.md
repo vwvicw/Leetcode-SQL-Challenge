@@ -10,5 +10,5 @@ This repo contains all my answers & study notes to the SQL challenges on Leetcod
 BETWEEN.. is always inclusive
 4. GROUP BY 1 is a shorthand notation that means "group the result set by the first column listed in the SELECT clause
 5. Consecutive Questions: **lead()+lag()** or** self-join** and join based on id/orders (LC 180)
-6. Summing up values until certain points: **self-join**  (LC 1204)
+6. Summing up values until certain points: **self-join**  (LC 1204) OR  WINDOW function
 7. Limit n gives the first n values 
