@@ -1,0 +1,29 @@
+# if less than n then return null: IFNULL( , NULL)
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  SET N = N - 1;
+  RETURN (
+    SELECT salary FROM (
+      SELECT DISTINCT salary
+      FROM Employee
+      ORDER BY salary DESC
+      LIMIT N, 1
+    ) AS temp
+  );
+END;
+
+
+
+
+
+
+/*
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    SET N = N-1;
+  RETURN (
+      SELECT DISTINCT(salary) from Employee order by salary DESC
+      LIMIT 1 OFFSET N
+  );
+END
+*/
