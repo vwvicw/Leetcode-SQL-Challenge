@@ -1,0 +1,16 @@
+# Write your MySQL query statement below
+
+
+with cte as (SELECT a.name,COUNT(*) as "play_count"
+FROM Activities a
+JOIN Friends b ON a.name = b.activity
+GROUP BY a.id)
+
+SELECT activity FROM Friends GROUP BY activity
+HAVING COUNT(*) != (SELECT play_count
+from cte
+ORDER BY play_count LIMIT 1)
+AND COUNT(*) != (SELECT play_count
+from cte
+ORDER BY play_count DESC LIMIT 1)
+
