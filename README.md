@@ -14,3 +14,4 @@ BETWEEN.. is always inclusive
 7. Limit n gives the first n values
 8. DENSE_RANK() allows tie compares to RANK()
 9. Use case of SUM()OVER(): a) Calculating running totals/cumulative sums: Tracking the cumulative sum of a value over time or within categories. b)Calculating sums for each group while retaining individual row details: Seeing the individual contribution of each record alongside the total for its group. c)Performing analytical calculations on subsets of data: Understanding trends, identifying top N per group, or comparing individual values to group aggregates without losing granularity
+10. When asked for a filter that finds the records in between the max and min, ORDER BY ASC/DESC LIMIT 1 is the easiest shortcut. (LC 1355)
